@@ -11,10 +11,10 @@ import { CriarClientesController } from "./Controllers/Clientes/CriarClientesCon
 //Listar
 import { ListarUsuarioController } from "./Controllers/Usuario/ListarUsuarioController"
 import { ListarClientesController } from "./Controllers/Clientes/ListarClientesController"
-import { ListarClienteUnicoController } from "./Controllers/Clientes/ListarClienteUnicoController"
 
 //ListarUnico
 import { ListarUnicoUsuarioController } from "./Controllers/Usuario/ListarUnicoUsuarioController"
+import { ListarClienteUnicoController } from "./Controllers/Clientes/ListarClienteUnicoController"
 
 //Deletar
 import { DeletarUsuarioController } from "./Controllers/Usuario/DeletarUsuarioController"
