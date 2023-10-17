@@ -1,0 +1,20 @@
+Divisão de trabalhos
+
+
+Luiz
+
+-Criação do controllers e services de clientes
+
+Renan
+
+-Criação do server
+
+Fernando
+
+-Criação dos controllers e services de produtos
+
+			
+
+todos
+
+-Discussão e planejamento do front-end e back-end

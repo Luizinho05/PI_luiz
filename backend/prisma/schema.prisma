@@ -1,0 +1,54 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+    id String @id @default(uuid())
+
+    nome  String
+    email String
+    senha String
+
+    create_at DateTime? @default(now())
+    update_at DateTime? @default(now())
+
+    @@map("user")
+}
+
+model Client {
+    id String @id @default(uuid())
+
+    nome     String
+    idade    String
+    cpf_cnpj String
+    rg_ie    String
+    casa     String
+    cidade   String
+
+    create_at DateTime? @default(now())
+    update_at DateTime? @default(now())
+
+    @@map("client")
+}
+
+model Products {
+    id String @id @default(uuid())
+
+    img        String
+    nome       String
+    categoria  String
+    marca      String
+    tamanho    String
+    quantidade String
+    preco      String
+
+    create_at DateTime? @default(now())
+    update_at DateTime? @default(now())
+
+    @@map("products")
+}
