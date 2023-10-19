@@ -43,6 +43,7 @@ model Products {
     nome       String
     categoria  String
     marca      String
+    tipo       String
     tamanho    String
     quantidade String
     preco      String
