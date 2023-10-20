@@ -33,7 +33,7 @@ class AlterarProdutosServices {
 				nome: alteraNome,
 				marca: alteraMarca,
 				tamanho: alteraTamanho,
-				categoria: alteraCategoria,
+				categoriaId: alteraCategoria,
 				quantidade: alteraQuantidade,
 				preco: alteraPreco,
 			    tipo: alteraTipo,

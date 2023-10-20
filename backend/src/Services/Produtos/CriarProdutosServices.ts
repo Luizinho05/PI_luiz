@@ -2,19 +2,19 @@ import prisma from '../../prisma'
 
 interface CriarProduto{
     nome: string
-    categoria: string
     marca: string
     tamanho: string
     quantidade: string
     preco: string
     img: string
     tipo: string
+    categoriaId: string
 }
 
 class CriarProdutosServices{
    async execute({
     nome,
-    categoria,
+    categoriaId,
     marca,
     tamanho,
     quantidade,
@@ -22,7 +22,7 @@ class CriarProdutosServices{
     img,
     tipo
    }: CriarProduto){
-        if(!nome || !categoria || !marca || !tamanho || 
+        if(!nome || !categoriaId || !marca || !tamanho || 
             !quantidade || !preco || !img || !tipo){
             throw new Error('Campos em branco não são permitidos!')
             }
@@ -30,13 +30,13 @@ class CriarProdutosServices{
             await prisma.products.create({
                 data:{
                     nome: nome,
-                    categoria: categoria,
                     marca: marca,
                     tamanho: tamanho,
                     quantidade: quantidade,
                     preco: preco,
                     img: img,
-                    tipo: tipo
+                    tipo: tipo,
+                    categoriaId: categoriaId
                 }
             })
             return { dados: 'Produto locado com sucesso!' }

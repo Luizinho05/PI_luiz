@@ -9,11 +9,9 @@ datasource db {
 
 model User {
     id String @id @default(uuid())
-
     nome  String
     email String
     senha String
-
     create_at DateTime? @default(now())
     update_at DateTime? @default(now())
 
@@ -22,14 +20,12 @@ model User {
 
 model Client {
     id String @id @default(uuid())
-
     nome     String
     idade    String
     cpf_cnpj String
     rg_ie    String
     casa     String
     cidade   String
-
     create_at DateTime? @default(now())
     update_at DateTime? @default(now())
 
@@ -38,18 +34,29 @@ model Client {
 
 model Products {
     id String @id @default(uuid())
-
     img        String
     nome       String
-    categoria  String
     marca      String
     tipo       String
     tamanho    String
     quantidade String
     preco      String
-
     create_at DateTime? @default(now())
     update_at DateTime? @default(now())
 
+    categorias Categorias @relation(fields: [categoriaId], references: [id])
+    categoriaId  String
+
     @@map("products")
+}
+
+model Categorias{
+    id   String @id @default(uuid())
+    nome String
+    create_at DateTime? @default(now())
+    update_at DateTime? @default(now())
+
+    products Products[]
+
+    @@map("categorias")
 }

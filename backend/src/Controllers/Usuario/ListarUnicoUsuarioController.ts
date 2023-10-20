@@ -3,7 +3,7 @@ import { ListarUnicoUsuarioService } from "../../Services/Usuario/ListarUnicoUsu
 
 export class ListarUnicoUsuarioController {
     async handle(req: Request, res: Response) {
-        const { usuarioId } = req.body
+        const { usuarioId } = req.params
         const listarUnico = new ListarUnicoUsuarioService()
         const response = await listarUnico.execute({
             usuarioId
