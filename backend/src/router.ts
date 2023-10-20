@@ -1,11 +1,7 @@
 import { Router } from "express"
-import { autenticado } from "./middleware/authToken"
 import multer from 'multer'
 import uploadConfig from './config/multer'
 
-const upload = multer(uploadConfig.upload('./tmp'))
-const router = Router()
-export { router }
 
 //Criar
 import { CriarUsuarioController } from "./Controllers/Usuario/CriarUsuarioController"
@@ -37,8 +33,9 @@ import { AlterarProdutoController } from "./Controllers/Produtos/AlterarProdutos
 //Login
 import { LoginUsuarioController } from "./Controllers/Usuario/LoginUsuarioController"
 
-
-//--------------------\\
+import { autenticado } from "./middleware/authToken"
+const router = Router()
+const upload = multer(uploadConfig.upload('./tmp'))
 
 //Usuário
 
@@ -68,3 +65,5 @@ router.delete('/DeletarProduto', autenticado, new ApagarProdutosController().han
 //Categorias
 router.post('/CriarCategorias', autenticado, new CriarCategoriasController().handle)
 router.get('/ListarCategorias', autenticado, new ListarCategoriasController().handle)
+
+export { router }

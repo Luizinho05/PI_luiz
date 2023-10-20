@@ -1,4 +1,4 @@
-import prisma from "../../prisma";
+import prismaClient from "../../prisma";
 
 interface DeletarCliente{
     apagar: string
@@ -7,7 +7,7 @@ interface DeletarCliente{
 class DeletarClienteServices{
     async execute({apagar}: DeletarCliente){
       
-        await prisma.client.delete({
+        await prismaClient.client.delete({
             where:{
                 id: apagar
             }

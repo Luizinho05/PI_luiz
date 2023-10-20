@@ -1,4 +1,4 @@
-import prisma from "../../prisma";
+import prismaClient from "../../prisma";
 
 interface AlterarProduto {
 	id: string
@@ -25,7 +25,7 @@ class AlterarProdutosServices {
 	  alteraImg
 	}: AlterarProduto){
        
-		await prisma.products.update({
+		await prismaClient.products.update({
 			where: {
 				id: id
 			},

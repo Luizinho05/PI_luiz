@@ -1,4 +1,4 @@
-import prisma from "../../prisma";
+import prismaClient from "../../prisma";
 
 interface ListarUnico {
     usuarioId: string
@@ -9,7 +9,7 @@ export class ListarUnicoUsuarioService {
 
         if (!usuarioId) { throw new Error("Campos obrigatórios em branco!") }
 
-        const response = await prisma.user.findUnique({
+        const response = await prismaClient.user.findUnique({
             where: {
                 id: usuarioId
             },

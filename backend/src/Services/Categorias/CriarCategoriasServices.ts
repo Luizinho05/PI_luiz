@@ -1,4 +1,4 @@
-import prisma from '../../prisma'
+import prismaClient from '../../prisma'
 
 interface CriarCategoria {
     nome: string
@@ -6,7 +6,7 @@ interface CriarCategoria {
 
 class CriarCategoriasServices {
     async execute({ nome }: CriarCategoria) {
-        const resposta = await prisma.categorias.create({
+        const resposta = await prismaClient.categorias.create({
             data:{
                 nome: nome
             }

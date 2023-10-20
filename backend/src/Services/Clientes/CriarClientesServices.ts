@@ -1,4 +1,4 @@
-import prisma from "../../prisma";
+import prismaClient from "../../prisma";
 
 interface CriarClientes {
     nome: string
@@ -22,7 +22,7 @@ class CriarClientesServices {
         throw new Error('Faltou um ou mais campos sem registro!')
      }
      
-    const DocJaCadastrado = await prisma.client.findFirst({
+    const DocJaCadastrado = await prismaClient.client.findFirst({
         where:{
             OR: [
                 {
@@ -39,7 +39,7 @@ class CriarClientesServices {
         throw new Error('CPF/CNPJ ou RG/IE já registrado!')
     }
     
-    await prisma.client.create({
+    await prismaClient.client.create({
         data:{
           nome: nome,
           idade: idade,

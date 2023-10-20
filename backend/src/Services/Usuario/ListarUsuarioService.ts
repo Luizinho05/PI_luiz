@@ -1,8 +1,8 @@
-import prisma from "../../prisma";
+import prismaClient from "../../prisma";
 
 export class ListarUsuarioService {
     async execute() {
-        const response = await prisma.user.findMany({})
+        const response = await prismaClient.user.findMany({})
         return response
     }
 }

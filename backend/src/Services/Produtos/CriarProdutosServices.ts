@@ -1,4 +1,4 @@
-import prisma from '../../prisma'
+import prismaClient from '../../prisma'
 
 interface CriarProduto{
     nome: string
@@ -27,7 +27,7 @@ class CriarProdutosServices{
             throw new Error('Campos em branco não são permitidos!')
             }
 
-            await prisma.products.create({
+            await prismaClient.products.create({
                 data:{
                     nome: nome,
                     marca: marca,

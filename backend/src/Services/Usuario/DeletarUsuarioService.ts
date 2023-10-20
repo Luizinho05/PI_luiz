@@ -1,4 +1,4 @@
-import prisma from "../../prisma";
+import prismaClient from "../../prisma";
 
 interface Deletar {
     usuarioId: string
@@ -15,7 +15,7 @@ export class DeletarUsuarioService {
             throw new Error("Campos obrigatórios em branco!")
         }
 
-        await prisma.user.delete({
+        await prismaClient.user.delete({
             where: {
                 id: usuarioId
             }

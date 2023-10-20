@@ -1,8 +1,8 @@
-import prisma from "../../prisma";
+import prismaClient from "../../prisma";
 
 class ListarProdutosServices {
   async execute(){
-    const produtos = await prisma.products.findMany({})
+    const produtos = await prismaClient.products.findMany({})
     return (produtos)
   }
 }

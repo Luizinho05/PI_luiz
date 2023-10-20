@@ -1,4 +1,4 @@
-import prisma from '../../prisma'
+import prismaClient from '../../prisma'
 
 interface AlterarCliente{
     id:           string
@@ -15,7 +15,7 @@ class AlterarClientesServices{
         alteraCidade
     }:AlterarCliente){
        
-        await prisma.client.update({
+        await prismaClient.client.update({
             where:{
                 id: id
             },

@@ -1,4 +1,4 @@
-import prisma from "../../prisma";
+import prismaClient from "../../prisma";
 
 interface ProdutoUnico {
     id: string
@@ -7,7 +7,7 @@ interface ProdutoUnico {
 class ListarProdutoUnicoServices {
   async execute({id}: ProdutoUnico){
 
-    const resposta = await prisma.products.findUnique({
+    const resposta = await prismaClient.products.findUnique({
         where:{
             id: id
         },

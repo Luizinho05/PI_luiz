@@ -1,4 +1,4 @@
-import prisma from "../../prisma";
+import prismaClient from "../../prisma";
 
 interface ClienteUnico {
     id: string
@@ -7,7 +7,7 @@ interface ClienteUnico {
 class ListarClienteUnicoServices {
    async execute({id}: ClienteUnico){
        
-     const resposta = await prisma.client.findUnique({
+     const resposta = await prismaClient.client.findUnique({
         where:{
             id: id
         },

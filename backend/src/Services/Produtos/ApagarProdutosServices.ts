@@ -1,4 +1,4 @@
-import prisma from '../../prisma'
+import prismaClient from '../../prisma'
 
 interface ApagarProduto{
     deletar: string
@@ -7,7 +7,7 @@ interface ApagarProduto{
 class ApagarProdutosServices {
   async execute({deletar}: ApagarProduto ){
       
-    await prisma.products.delete({
+    await prismaClient.products.delete({
         where:{
             id: deletar
         }

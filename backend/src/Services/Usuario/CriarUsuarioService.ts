@@ -1,4 +1,4 @@
-import prisma from "../../prisma"
+import prismaClient from "../../prisma"
 import { hash } from "bcryptjs"
 
 interface Criar {
@@ -14,7 +14,7 @@ class CriarUsuarioService {
             throw new Error("Campos obrigatórios em branco!")
         }
 
-        const verificarEmail = await prisma.user.findFirst({
+        const verificarEmail = await prismaClient.user.findFirst({
             where: {
                 email: email
             }
@@ -25,7 +25,7 @@ class CriarUsuarioService {
         }
 
         const senhaCrypt = await hash(password, 8)
-        await prisma.user.create({
+        await prismaClient.user.create({
             data: {
                 nome: nome,
                 email: email,

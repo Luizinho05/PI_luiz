@@ -1,4 +1,4 @@
-import prisma from "../../prisma";
+import prismaClient from "../../prisma";
 import { compare } from "bcryptjs"
 import { sign } from "jsonwebtoken"
 
@@ -14,7 +14,7 @@ export class LoginUsuarioService {
             throw new Error("Campos obrigatórios em branco!")
         }
 
-        const usuario = await prisma.user.findFirst({
+        const usuario = await prismaClient.user.findFirst({
             where: {
                 email: email
             }
