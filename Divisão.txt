@@ -18,3 +18,10 @@ Fernando
 todos
 
 -Discussão e planejamento do front-end e back-end
+
+--------------------
+
+08/11
+fazer área de login, levando para o dashboard exclusivo para os donos
+a tela inicial vai ser uma tela perguntando se a pessoa é dono da loja entregando duas opções: Cliente, ou administrador
+cliente irá para a pagina normal e a de dono para outra página que será o dashboard.

@@ -6,7 +6,7 @@ export default function Home() {
     return (
         <>
 
-            <h1 className="aligntitle">De uma cara nova a você!</h1><br />
+            <h1 className="aligntitle">Dê uma cara nova a você!</h1><br />
             <h1 className="aligntitle">O que você está procurando hoje?</h1> <br />
 
 

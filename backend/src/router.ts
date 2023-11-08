@@ -32,6 +32,7 @@ import { AlterarProdutoController } from "./Controllers/Produtos/AlterarProdutos
 
 //Login
 import { LoginUsuarioController } from "./Controllers/Usuario/LoginUsuarioController"
+import { ListarUsuarioTokenController } from "./Controllers/Usuario/ListarUsuarioTokenController"
 
 import { autenticado } from "./middleware/authToken"
 const router = Router()
@@ -65,5 +66,8 @@ router.delete('/DeletarProduto', autenticado, new ApagarProdutosController().han
 //Categorias
 router.post('/CriarCategorias', autenticado, new CriarCategoriasController().handle)
 router.get('/ListarCategorias', autenticado, new ListarCategoriasController().handle)
+
+//Login
+router.post('/ListarUsuarioToken', autenticado, new ListarUsuarioTokenController().handle)
 
 export { router }

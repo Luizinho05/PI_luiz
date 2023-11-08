@@ -27,14 +27,6 @@ export default function Login() {
 
             <form onSubmit={handleLogin}>
 
-
-                <label><strong>Nome:</strong></label>
-                <input
-                    type='text'
-                    value={nome}
-                    onChange={(e) => setNome(e.target.value)}
-
-                /><br />
                 <label><strong>E-mail:</strong></label>
                 <input
                     type='email'

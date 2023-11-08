@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 
+import Donos from "./dono"
 import Home from "./Home"
 import RoupaCasual from "./RoupaCasual"
 import RoupaFormal from "./RoupaFormal"
@@ -14,7 +15,8 @@ export default function Rotas() {
         <BrowserRouter>
             <Header />
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path='/' element={<Donos />} />
+                <Route path="/Home" element={<Home />} />
                 <Route path="/RF" element={<RoupaFormal />} />
                 <Route path="/RC" element={<RoupaCasual />} />
                 <Route path="/Contato" element={<Contato />} />

@@ -5,12 +5,15 @@ interface PayLoad {
     sub: string
 }
 
-export function autenticado(req: Request, res: Response, next: NextFunction) {
-    
+export function autenticado(
+    req: Request,
+    res: Response,
+    next: NextFunction
+){ 
     const authToken = req.headers.authorization
 
     if (!authToken) {
-        return res.status(401).end()
+        return res.json({dados: 'Token Inválido'})
     }
 
     const [, token] = authToken.split(' ')
@@ -20,11 +23,10 @@ export function autenticado(req: Request, res: Response, next: NextFunction) {
             token,
             process.env.AUTH_TOKEN
         ) as PayLoad
+        req.user_id = sub
         return next()
-        //return next para continuar para a proxima função
-        //no caso do router.ts, realizar o controller
 
     } catch (err) {
-        return res.status(401).end()
+        return res.json({dados: 'Token Inválido'})
     }
 }
