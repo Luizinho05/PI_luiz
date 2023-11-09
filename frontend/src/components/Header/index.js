@@ -7,7 +7,7 @@ export default function Header() {
             <nav class="navbar navbar-dark bg-dark">
                 <a class="navbar-brand" href="/"><img src={LOGO} alt="LOGO" style={{width: 50, height: 60}}/></a>
                 <a class="navbar-brand" href="/">Vista-se! | Vestuário e identidade</a>
-                <a class="link" href="/Login">Login</a>
+                <a></a>
             </nav>
         </div>
     )

@@ -6,7 +6,7 @@ export default function Donos(){
         <div className="conteinerEscolha">
           <p>Você é :</p>
           <button><Link to='/Home'>Clientes</Link></button>
-          <button><Link to='/Login'>Dono</Link></button>
+          <button><Link to='/Login'>Administrador</Link></button>
         </div>
     )
 }
