@@ -1,51 +1,96 @@
-import React, { useState } from 'react'
-import "./Login.css"
+import React, { useState, useEffect, useContext } from 'react'
+import { AuthContext } from '../../Context/authContext'
+import { useNavigate, Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import apiLocal from '../../API/apiLocal/api'
+import "./Login.scss"
 
 export default function Login() {
-
-    const [nome, setNome] = useState('')
+    const navigation = useNavigate()
     const [email, setEmail] = useState('')
-    const [senha, setSenha] = useState('')
+    const [password, setPassword] = useState('')
+    const { signIn } = useContext(AuthContext)
 
+    const iToken = localStorage.getItem('@vistaseToken')
+    const token = JSON.parse(iToken)
 
-    function handleLogin(event) {
-        event.preventDefault()
-        if (nome === '' || email === '' || senha === '') {
-            alert('Tem Campos em branco')
+    useEffect(() => {
+        if (!token) {
+            navigation('/Login')
+            return
+        } else if (token) {
+            async function verificaToken() {
+                const resposta = await apiLocal.get('/ListarUsuarioToken', {
+                    headers: {
+                        Authorization: 'Bearer ' + `${token}`
+                    }
+                })
+                if (resposta.data.dados) {
+                    navigation('/Login')
+                    return
+                } else if (resposta.data.id) {
+                    navigation('/Dashboard')
+                }
+            }
+            verificaToken()
+        }
+    }, [])
+
+    async function handleLogin(e) {
+        e.preventDefault(e)
+        if (!email || !password) {
+            toast.warn('um ou mais campos em branco!')
             return
         }
-        alert(`Nome: ${nome} \nE-mail: ${email} \nSenha: ${senha}`)
+        try {
+            let data = {
+                email,
+                password
+            }
+            const resposta = await signIn(data)
+            if (!resposta) {
+                toast.error('Erro de Login!', {
+                    toastId: 'toastId'
+                })
+               return
+            } else if (resposta.status === 200) {
+                const token = resposta.data.token
+                localStorage.setItem('@vistaseToken', JSON.stringify(token))
+                toast.success('Login efetuado com sucesso')
+                navigation('/Dashboard')
+            }
+        } catch (err) {
+            toast.error('Email ou senha incorretos!')
+            return
+        }
     }
 
 
     return (
         <div className='container-fluid alignform'>
-            <br />
+            <div>
+               <h1>Login Vista-se !</h1>
+            </div>
+            <div className='formInicio'>
+                <form onSubmit={handleLogin}>
 
-            <h1>Login Vista-se !</h1><br />
+                    <label>E-mail:</label>
+                    <input
+                        type='email'
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <label>Senha:</label>
+                    <input
+                        type='password'
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
 
-
-            <form onSubmit={handleLogin}>
-
-                <label><strong>E-mail:</strong></label>
-                <input
-                    type='email'
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-
-                /><br />
-                <label><strong>Senha:</strong></label>
-                <input
-                    type='password'
-                    value={senha}
-                    onChange={(e) => setSenha(e.target.value)}
-
-                /><br /><br />
-
-
-                <button type='submit' ><strong>logar</strong></button>
-            </form>
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                    <button type='submit'>Enviar</button>
+                </form>
+                <br/><br/>
+            </div>
         </div>
     )
 }

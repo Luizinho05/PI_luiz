@@ -10,10 +10,6 @@ interface Login {
 export class LoginUsuarioService {
     async execute({ email, password }: Login) {
 
-        if (!email || !password) {
-            throw new Error("Campos obrigatórios em branco!")
-        }
-
         const usuario = await prismaClient.user.findFirst({
             where: {
                 email: email
@@ -39,13 +35,13 @@ export class LoginUsuarioService {
             process.env.AUTH_TOKEN,
             {
                 subject: usuario.id,
-                expiresIn: "1h"
+                expiresIn: '5h'
             }
         )
 
         return {
             id: usuario.id,
-            email: email,
+            email: usuario.email,
             token: tokenAutenticado
         }
     }

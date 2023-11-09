@@ -68,6 +68,6 @@ router.post('/CriarCategorias', autenticado, new CriarCategoriasController().han
 router.get('/ListarCategorias', autenticado, new ListarCategoriasController().handle)
 
 //Login
-router.post('/ListarUsuarioToken', autenticado, new ListarUsuarioTokenController().handle)
+router.get('/ListarUsuarioToken', autenticado, new ListarUsuarioTokenController().handle)
 
 export { router }

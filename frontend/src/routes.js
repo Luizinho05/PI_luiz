@@ -1,14 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-import Header from "../components/Header"
-import Footer from "../components/Footer"
+import Header from "./components/Header"
+import Footer from "./components/Footer"
 
-import Donos from "./dono"
-import Home from "./Home"
-import RoupaCasual from "./RoupaCasual"
-import RoupaFormal from "./RoupaFormal"
-import Contato from "./contato"
-import Login from "./Login"
+import Donos from "./pages/dono"
+import Home from "./pages/Home"
+import RoupaCasual from "./pages/RoupaCasual"
+import RoupaFormal from "./pages/RoupaFormal"
+import Contato from "./pages/contato"
+import Login from "./pages/Login"
+import Dashboard from "./pages/dashboard"
 
 export default function Rotas() {
     return (
@@ -21,6 +22,7 @@ export default function Rotas() {
                 <Route path="/RC" element={<RoupaCasual />} />
                 <Route path="/Contato" element={<Contato />} />
                 <Route path="/Login" element={<Login />} />
+                <Route path='/Dashboard' element={<Dashboard/>} />
             </Routes>
             <Footer />
         </BrowserRouter>
