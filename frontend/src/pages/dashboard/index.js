@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import apiLocal from '../../API/apiLocal/api'
+import './dashboard.scss'
 
 export default function Dashboard(){
     const navigation = useNavigate()
@@ -29,10 +30,15 @@ export default function Dashboard(){
         }
     }, [token])
 
+    function handleSair(){
+        localStorage.removeItem("@vistaseToken")
+        navigation("/")
+    }
 
     return(
-        <div>
+        <div className='dashboard'>
             <h1>Dashboard</h1>
+            <button onClick={handleSair}>sair</button>
         </div>
     )
 }

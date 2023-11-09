@@ -1,0 +1,16 @@
+.dashboard{
+    display: grid;
+    align-items: center;
+
+    button{
+        margin-top: 1rem;
+        height: 3rem;
+        width: 10%;
+        border-radius: 0.5rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        background-color: #1253f5;
+        padding: 0.3rem;
+        color: #FFFFFF;
+    }
+}
