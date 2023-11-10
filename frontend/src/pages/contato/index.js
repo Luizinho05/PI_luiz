@@ -18,7 +18,7 @@ export default function Contato() {
                 <img src={email} alt="IMG" style={{width: 80}} /> <a>E-mail : Vistase@gmail.com</a> <br />
                 <img src={zapzap} alt="IMG" style={{width: 50}} /> <a>Whatsapp : (14)5555-3438</a>
 
-                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br/><br/><br/><br/><br/><br/>
             </div>
 
         </div>

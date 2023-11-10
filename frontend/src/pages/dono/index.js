@@ -7,6 +7,7 @@ export default function Donos(){
           <p>Você é :</p>
           <button><Link to='/Home'>Clientes</Link></button>
           <button><Link to='/Login'>Administrador</Link></button>
+          <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br/><br/><br/><br/><br/><br/>
         </div>
     )
 }
