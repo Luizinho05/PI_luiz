@@ -21,9 +21,7 @@ export default function AuthProvider({ children }) {
             })
             setUser(response.data.id)
         } catch (err) {
-            if(err.response.status === 401){
-                setUser('')
-              }
+            toast.error('Erro de login')
         }
     }
 

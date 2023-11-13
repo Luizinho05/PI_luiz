@@ -1,19 +1,18 @@
-import prismaClient from "../../prisma";
+import prismaClient from "../../prisma"
 
 interface ListarUnico {
-    usuarioId: string
+    id: string
 }
 
-export class ListarUnicoUsuarioService {
-    async execute({ usuarioId }: ListarUnico) {
-
-        if (!usuarioId) { throw new Error("Campos obrigatórios em branco!") }
+class ListarUnicoUsuarioServices {
+    async execute({ id }: ListarUnico) {
 
         const response = await prismaClient.user.findUnique({
             where: {
-                id: usuarioId
+                id: id
             },
             select: {
+                id: true,
                 nome: true,
                 email: true
             }
@@ -21,3 +20,5 @@ export class ListarUnicoUsuarioService {
         return response
     }
 }
+
+export { ListarUnicoUsuarioServices }

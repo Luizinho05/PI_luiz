@@ -1,13 +1,15 @@
 import { Request, Response } from "express";
-import { ListarUnicoUsuarioService } from "../../Services/Usuario/ListarUnicoUsuarioService";
+import { ListarUnicoUsuarioServices } from "../../Services/Usuario/ListarUnicoUsuarioService";
 
-export class ListarUnicoUsuarioController {
+class ListarUnicoUsuarioController {
     async handle(req: Request, res: Response) {
-        const { usuarioId } = req.params
-        const listarUnico = new ListarUnicoUsuarioService()
-        const response = await listarUnico.execute({
-            usuarioId
+        const { id } = req.params
+        const listarUnicoUsuario = new ListarUnicoUsuarioServices()
+        const response = await listarUnicoUsuario.execute({
+            id
         })
         return res.json(response)
     }
 }
+
+export { ListarUnicoUsuarioController }

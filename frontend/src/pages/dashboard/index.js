@@ -34,11 +34,21 @@ export default function Dashboard(){
         localStorage.removeItem("@vistaseToken")
         navigation("/")
     }
-
+//ListarUsuario
     return(
-        <div className='dashboard'>
+        <div>
+            <div>
             <h1>Dashboard</h1>
+            </div>
+            <div className='dashboard'>
+            <div className='esquerda'>
+            <button><Link to='/CriarUsuario'>Criar Usuário</Link></button>
+            </div>
+            <div className='direita'>
+            <button><Link to='/ListarUsuario'>Listar Usuário</Link></button>
+            </div>
             <button onClick={handleSair}>sair</button>
+            </div>
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         </div>
     )

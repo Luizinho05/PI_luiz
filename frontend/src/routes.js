@@ -10,6 +10,9 @@ import RoupaFormal from "./pages/RoupaFormal"
 import Contato from "./pages/contato"
 import Login from "./pages/Login"
 import Dashboard from "./pages/dashboard"
+import CriarUsuario from './pages/Usuarios/CriarUsuarios'
+import ListarUsuario from "./pages/Usuarios/ListarUsuario"
+import AlterarUsuario from "./pages/Usuarios/AlterarUsuario"
 
 export default function Rotas() {
     return (
@@ -23,6 +26,9 @@ export default function Rotas() {
                 <Route path="/Contato" element={<Contato />} />
                 <Route path="/Login" element={<Login />} />
                 <Route path='/Dashboard' element={<Dashboard/>} />
+                <Route path='/CriarUsuario' element={<CriarUsuario />}/>
+                <Route path='/ListarUsuario' element={<ListarUsuario />}/>
+                <Route path='/AlteraUsuario/:id' element={<AlterarUsuario/>}/>
             </Routes>
             <Footer />
         </BrowserRouter>
