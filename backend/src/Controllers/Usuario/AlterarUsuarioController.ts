@@ -1,15 +1,17 @@
 import { Request, Response } from "express"
-import { AlterarUsuarioService } from "../../Services/Usuario/AlterarUsuarioSevice"
+import { AlterarUsuarioServices } from "../../Services/Usuario/AlterarUsuarioSevice"
 
-export class AlterarUsuarioController {
+class AlterarUsuarioController {
     async handle(req: Request, res: Response) {
-        const { usuarioId, novoNome, novoEmail } = req.body
-        const alterar = new AlterarUsuarioService()
-        const response = await alterar.execute({
-            usuarioId,
-            novoNome,
-            novoEmail
+        const { id, alteraNome, alteraEmail } = req.body
+        const alterarUsuarioServices = new AlterarUsuarioServices()
+        const response = await alterarUsuarioServices.execute({
+            id,
+            alteraNome,
+            alteraEmail
         })
         return res.json(response)
     }
 }
+
+export { AlterarUsuarioController }

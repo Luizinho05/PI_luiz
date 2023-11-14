@@ -4,7 +4,7 @@ import placeholder from "../../imgs/placeholder.png"
 
 export default function Home() {
     return (
-        <div>
+        <div className="home">
 
             <h1 className="aligntitle">Dê uma cara nova a você!</h1><br />
             <h1 className="aligntitle">O que você está procurando hoje?</h1> <br />
@@ -44,16 +44,12 @@ export default function Home() {
             <br /> <br /> <br />
 
             <div className="aligntitle">
-            <iframe className="infoimg" src="https://www.google.com/maps/embed?pb=!3m2!1spt-BR!2sbr!4v1682700719790!5m2!1spt-BR!2sbr!6m8!1m7!1sOl_fj7z160r-p6iukKwBdA!2m2!1d-22.32273983541924!2d-49.07311861978143!3f205.56627829299012!4f0.5329224861639688!5f0.7820865974627469" width="500" height="300" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" /><br />
+            <iframe className="infoimg" src="https://www.google.com/maps/@-22.3227398,-49.0731186,3a,75y,194.38h,86.31t/data=!3m6!1e1!3m4!1sOl_fj7z160r-p6iukKwBdA!2e0!7i13312!8i6656?hl=pt-BR&entry=ttu" width="500" height="300" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" /><br />
             <p className="info">Loja sob-reforma</p>
-            </div>
-            <div className="aligntitle">
-                <a>Encontrou algum erro ou gostaria de enviar alguma recomendação?</a>
-                <a href="/contato"> Contate-nos</a>
-            </div>
-
-            <br />  
-
+            <a>Encontrou algum erro ou gostaria de enviar alguma recomendação?</a>
+            <a href="/contato"> Contate-nos</a>
+            </div> 
+            <br/><br/><br/>
         </div>
     )
 }

@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { AuthContext } from '../../../Context/authContext'
 import apiLocal from '../../../API/apiLocal/api'
+import './altera.scss'
 
 export default function AlterarUsuario(){
     const navigation = useNavigate()
@@ -24,7 +25,7 @@ export default function AlterarUsuario(){
                 navigation('/Login')
                 return
             }
-            setListarUnicoUsuario(resposta.data.id)
+            setListarUnicoUsuario(resposta.data)
         }
         listarUsuarioUnico()
     }, [id])
@@ -49,28 +50,29 @@ export default function AlterarUsuario(){
     async function AlterarUsuario(e){
         e.preventDefault()
         const resposta = await apiLocal.put('/AlterarUsuario', {
-            id,
-            alteraNome,
-            alteraEmail
+         id,
+         alteraEmail,
+         alteraNome
         })
         toast.info(resposta.data.dados)
+        navigation('/ListarUsuario')
     }
 
     return(
-        <div>
+        <div className='alignform'>
             <div>
-                <h1>Alterar Usuário</h1>
+                <h1>Alteração de Usuário</h1>
             </div>
-            <div>
+            <div className='formInicio'>
                 <form onSubmit={AlterarUsuario}><br/>
                 <label>Nome:</label>
-                <input placeholder='Digite o Novo Nome'
+                <input placeholder='Insira o Novo Nome'
                 type='text'
                 value={alteraNome}
                 onChange={(e) => setAlteraNome(e.target.value)}
                 /><br/>
                 <label>E-mail:</label>
-                <input placeholder='Digite o Novo E-mail'
+                <input placeholder='Insira o Novo E-mail'
                 type='email'
                 value={alteraEmail}
                 onChange={(e) => setAlteraEmail(e.target.value)}

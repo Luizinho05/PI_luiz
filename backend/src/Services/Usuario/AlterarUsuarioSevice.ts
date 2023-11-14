@@ -1,27 +1,25 @@
 import prismaClient from "../../prisma"
 
 interface Alterar {
-    usuarioId: string
-    novoNome: string
-    novoEmail: string
+    id: string
+    alteraNome: string
+    alteraEmail: string
 }
 
-export class AlterarUsuarioService {
-    async execute({ usuarioId, novoNome, novoEmail }: Alterar) {
-
-        if (!usuarioId || !novoNome || !novoEmail) {
-            throw new Error("Campos obrigatórios em branco!")
-        }
+class AlterarUsuarioServices {
+    async execute({ id, alteraNome, alteraEmail }: Alterar) {
 
         await prismaClient.user.update({
             where: {
-                id: usuarioId
+                id: id
             },
             data: {
-                nome: novoNome,
-                email: novoEmail
+                nome: alteraNome,
+                email: alteraEmail
             }
         })
         return { dados: "Usuario alterado com sucesso" }
     }
 }
+
+export { AlterarUsuarioServices }

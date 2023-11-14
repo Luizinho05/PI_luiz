@@ -31,3 +31,10 @@ a:link {
     color: blue;
     text-decoration: none;
 }
+
+.home{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}

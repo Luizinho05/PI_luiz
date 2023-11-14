@@ -10,7 +10,7 @@ function App() {
       <Rotas />
       <ToastContainer
       position="top-center"
-      autoClose={1700}
+      autoClose={2200}
       theme='colored'
       />
     </div>

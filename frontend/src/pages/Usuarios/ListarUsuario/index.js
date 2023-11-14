@@ -28,8 +28,6 @@ export default function ListarUsuario(){
         loadUsuarios()
     }, [usuario])
 
-    
-
     const { loginVerify } = useContext(AuthContext)
    
     useEffect(() => {
@@ -51,14 +49,13 @@ export default function ListarUsuario(){
                 usuarioId: id
             }
         })
-        toast.success(resposta.data.dados)
+        toast.info(resposta.data.dados)
     }
 
 return(
     
     <div>
         <h1 className='TituloPagina'>Informações de Usuários</h1>
-        
         
                 {usuario.map((item) => {
 
@@ -67,7 +64,7 @@ return(
                         <article key={item.id}>
                     <strong className='Info linhaDivision'>______________________________</strong><br/>
                     <div className='Info'>
-                        <p>{item.nome}</p>
+                        <p>{item.nome}</p><br/>
                         <p>{item.email}</p>
                         <h3 className='icones'>
                             <Link to ={`/AlteraUsuario/${item.id}`}><FaPencilAlt size='1.4rem' color='blue'/></Link>
@@ -80,7 +77,6 @@ return(
                     )
                 })}
                 </div>
-    
-)
+             )
 
 }

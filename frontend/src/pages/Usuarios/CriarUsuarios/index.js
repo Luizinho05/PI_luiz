@@ -29,6 +29,7 @@ export default function CriarUsuario(){
         try{
            if (!nome || !email || !password){
             toast.warn('Campos em branco não são permitidos!')
+            return
            }
            await apiLocal.post('/CriarUsuario', {
              nome,
@@ -36,33 +37,33 @@ export default function CriarUsuario(){
              password
            })
            toast.success('Usuário cadastrado com sucesso!')
-           navigation('/ListarUsuario')
         } catch (err){
            toast.error(err.response.data.error)
+           return
         }
     }
 
     return(
         <div className='container-fluid alignform'>
           <div>
-             <h1>Cadastro Usuário</h1>
+             <h1>Cadastro de Usuário</h1>
           </div>
           <div className='formInicio'>
             <form onSubmit={handleCadastrar}>
               <label>Nome:</label>
-              <input
+              <input placeholder='Insira o Nome'
               type='text'
               value={nome}
               onChange={(e) => setNome(e.target.value)}
               />
               <label>Email:</label>
-              <input
+              <input placeholder='Insira o E-mail'
               type='email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               />
               <label>Senha:</label>
-              <input
+              <input placeholder='Insira a Senha'
               type='password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
