@@ -3,8 +3,9 @@ Divisão de trabalhos
 
 Luiz
 
--Criação do controllers e services de clientes
--Criação do Frontend - Login, Dashboard, Dashboard(Usuarios)
+-Criação do controllers e services de clientes//                   feito
+-Criação do Frontend - Login, Dashboard, Dashboard(Usuarios)//     feito
+
 Renan
 
 -Criação do server
